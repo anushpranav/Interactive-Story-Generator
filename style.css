@@ -1,0 +1,87 @@
+/* Reset default margin and padding for all elements */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+  font-family: Arial, sans-serif;
+  background-image: url('sgn.png'); /* Replace with the path to your background image */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* Fixed background */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center; /* Align content horizontally at the center */
+  align-items: center; /* Align content vertically at the center */
+  min-height: 100vh; /* Set minimum height to full viewport height */
+}
+
+/* Container styles */
+.container {
+  width: 60%; /* Adjust width of container as needed */
+  padding: 20px;
+  background-color: #fff; /* White background */
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center; /* Align text content to the center */
+}
+
+/* Header styles */
+h1 {
+  color: #007bff;
+  margin-bottom: 20px;
+}
+
+.input-container {
+  margin-bottom: 20px;
+}
+
+.output-container {
+  text-align: left; /* Align output text to the left */
+}
+
+/* Form styles */
+label,
+textarea,
+input {
+  display: block;
+  margin: 10px 0;
+}
+
+textarea {
+  width: 100%;
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 10px;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Styling for generated story, named entities, relations, and noun chunks */
+#generatedStory,
+#namedEntities,
+#relations,
+#nounChunks {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f9f9f9; /* Light gray background for sections */
+  max-width: 600px; /* Limit width for better readability */
+  margin: 20px auto; /* Center on the page */
+  line-height: 1.5; /* Increase line height for better readability */
+}

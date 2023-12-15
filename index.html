@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NLP LAB PROJECT</title>
+    <link rel="stylesheet" href="static/style.css">
+    <!-- Other styles or scripts can be included here -->
+</head>  
+
+<body>
+    <div class="container">
+        <h1>INTERACTIVE STORY GENERATOR</h1>
+        <center>
+        <div class="input-container">
+            <label for="inputPrompt"><h3>Enter starting sentence or prompt:</h3></label>
+            <textarea id="inputPrompt" rows="3" cols="10"></textarea>
+            <label for="maxLength"><h4>Maximum length for the story:</h4></label>
+            <input type="number" id="maxLength" value="300">
+            <button onclick="generateStory()">Generate Story</button>
+        </div>
+      </center>
+      <center>
+        <div class="output-container">
+            <h3>Generated Story:</h3>
+            <div id="generatedStory"></div>
+            <h3>Named Entities:</h3>
+            <div id="namedEntities"></div>
+            <h3>Relations:</h3>
+            <div id="relations"></div>
+            <h3>Noun Chunks:</h3>
+            <div id="nounChunks"></div>
+        </div>
+      </center>
+    </div>
+
+    <script>
+        // JavaScript code here
+        async function generateStory() {
+            const inputPrompt = document.getElementById('inputPrompt').value;
+            const maxLength = document.getElementById('maxLength').value;
+
+            const response = await fetch('/generate', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ inputPrompt, maxLength })
+            });
+
+            const data = await response.json();
+            document.getElementById('generatedStory').innerText = data.generatedText;
+            document.getElementById('namedEntities').innerText = JSON.stringify(data.namedEntities);
+            document.getElementById('relations').innerText = JSON.stringify(data.relations);
+            document.getElementById('nounChunks').innerText = JSON.stringify(data.nounChunks);
+        }
+    </script>
+</body>
+</html>
